@@ -1,0 +1,53 @@
+<ion-header>
+</ion-header>
+<ion-content>
+
+  <div id="dynamicHeader" class="header-bar">
+    <button class="iconButton" color="dark" ion-button icon-only menuToggle clear>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title *ngIf="plt.is('ios')" class="ion-title-ios">Links</ion-title>
+    <ion-title *ngIf="!plt.is('ios')">Links</ion-title>
+    <hr/>
+  </div>
+
+  <ion-item-group>
+    <ion-item-divider color="light">PRODUÇÃO DOCENTE</ion-item-divider>
+    <ion-item onclick="window.open('http://repositorio.unb.br/handle/10482/25'); return false;">
+      <a href="#">http://repositorio.unb.br/handle/10482/25</a>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light">PRODUÇÃO DISCENTE</ion-item-divider>
+    <ion-item onclick="window.open('http://bdm.unb.br/handle/10483/1'); return false;">
+      <a href="#">http://bdm.unb.br/handle/10483/1</a>
+    </ion-item>
+    <ion-item onclick="window.open('http://bdm.unb.br/handle/10483/1475'); return false;">
+      <a href="#">Comunicação - Audiovisual</a>
+    </ion-item>
+    <ion-item onclick="window.open('http://bdm.unb.br/handle/10483/7306'); return false;">
+      <a href="#">Comunicação - Comunicação Organizacional</a>
+    </ion-item>
+    <ion-item onclick="window.open('http://bdm.unb.br/handle/10483/1476'); return false;">
+      <a href="#">Comunicação - Jornalismo</a>
+    </ion-item>
+    <ion-item onclick="window.open('http://bdm.unb.br/handle/10483/1477'); return false;">
+      <a href="#">Comunicação - Publicidade e Propaganda</a>
+    </ion-item>
+    <ion-item onclick="window.open('http://bdce.unb.br/collections/browse'); return false;">
+      <a href="#">Coleções especiais</a>
+    </ion-item>
+    <ion-item onclick="window.open('http://bdce.unb.br/collections/show/7'); return false;">
+      <a href="#">Campus</a>
+    </ion-item>
+    <ion-item>
+      <a href="#">Campus Repórter</a>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light">CEDOC</ion-item-divider>
+  </ion-item-group>
+
+</ion-content>

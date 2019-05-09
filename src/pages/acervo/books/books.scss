@@ -1,0 +1,36 @@
+page-books {
+
+  ion-content{
+    background-color: rgb(244, 244, 244) !important;
+  }
+
+  .card-background-page {
+
+    ion-card {
+      position: relative;
+      text-align: center;
+      height: 80px;
+    }
+
+    .card-title {
+      position: absolute;
+      font-size: 1.0em;
+      line-height: 70px;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 100%;
+    }
+
+    .card-subtitle {
+      font-size: 0.7em;
+      position: absolute;
+      line-height: 100px;
+      width: 100%;
+      color: #fff;
+    }
+
+  }
+
+}

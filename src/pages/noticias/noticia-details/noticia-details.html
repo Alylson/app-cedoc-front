@@ -1,0 +1,48 @@
+<ion-content>
+
+  <ion-navbar color="transparent">
+  </ion-navbar>
+
+  <ion-list no-lines>
+    <img src="{{ noticia.c_thumbnail }}">
+
+    <ion-row class="post-info">
+      <ion-col>
+        <ion-note class="publish-info">
+          <ion-icon name="paper"></ion-icon>
+        </ion-note>
+        <ion-note class="publish-time">
+          {{ utils.formatDataPostagem(noticia.n_datapost) }} atrás
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+    <h5>{{ noticia.c_titulo }}</h5>
+
+    <ion-note class="autor-info">
+      Por {{ noticia.c_autor }}.
+    </ion-note>
+
+    <!--
+    <div class="user-action">
+      <button *ngIf="logged" ion-button icon-left clear>
+        <ion-icon name="thumbs-up"></ion-icon>
+        {{ noticia.n_curtidas }}
+      </button>
+      <button *ngIf="logged" text-capitalize ion-button icon-left clear>
+        <ion-icon name="text"></ion-icon>
+        0
+      </button>
+      <button class="share-button" ion-button icon-only item-end clear>
+        <ion-icon name="md-share"></ion-icon>
+      </button>
+    </div>
+    -->
+
+    <ion-card-content>
+      {{ noticia.c_texto }}
+    </ion-card-content>
+
+  </ion-list>
+
+</ion-content>

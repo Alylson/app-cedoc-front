@@ -1,0 +1,58 @@
+<ion-header>
+</ion-header>
+<ion-content>
+
+  <div id="dynamicHeader" class="header-bar">
+    <button color="dark" ion-button icon-only (click)="voltar()" clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+    <ion-title *ngIf="plt.is('ios')" class="ion-title-ios">Eventos</ion-title>
+    <ion-title *ngIf="!plt.is('ios')">Eventos</ion-title>
+    <hr/>
+  </div>
+
+  <ion-card *ngFor="let evento of eventos; let i = index" class="eventos-box">
+
+    <div class="eventos">
+
+      <!--<div style="width: 100%;height: 150px" id="map-{{i}}"></div>-->
+      <!--<img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-map-paris.png">-->
+
+      <!--
+      <ion-fab right top>
+        <button ion-fab>
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-fab>
+      -->
+
+      <ion-card-header>
+        {{evento.c_titulo}}
+      </ion-card-header>
+
+      <ion-item>
+        <ion-icon name="md-navigate" item-start></ion-icon>
+        <h3>Local</h3>
+        <p>{{evento.c_local}}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="md-time" item-start large></ion-icon>
+        <h3>Horário</h3>
+        <p>{{utils.formatarData(evento.c_datacompleta)}} ás {{evento.c_horario}}</p>
+      </ion-item>
+
+      <!--
+      <hr/>
+      <div class="user-action-evento">
+        <button ion-button small *ngIf="logged == true">Confirmar presença</button>
+        <button class="share-button" ion-button icon-only item-end clear disabled>
+          <ion-icon name="md-share"></ion-icon>
+        </button>
+      </div>
+      -->
+
+    </div>
+  </ion-card>
+
+</ion-content>

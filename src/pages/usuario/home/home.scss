@@ -1,0 +1,67 @@
+page-home {
+
+  .cedoc{
+    float: right;
+    width: 75px;
+    margin: 0.65em 10px 0 0;
+  }
+
+  .fapdf{
+    float: right;
+    width: 30px;
+    margin: 0.8em 10px 0 0;
+  }
+
+  ion-content{
+    //background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-color: rgb(244, 244, 244) !important;
+  }
+
+  ion-header{
+    background: linear-gradient(to top, #4481eb 0%, #04befe 100%) !important;
+  }
+
+  .header-bar{
+    position: relative !important;
+
+    .loginButton{
+      float: right;
+      margin: 5px 10px 0px 0px !important;
+    }
+  }
+
+  .feed-title{
+    font-size: 14px;
+    margin: 10px 5px 0px 17px !important;
+  }
+
+  .news{
+    text-align: left;
+    margin-bottom: 40px;
+    .title{
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    img{
+      height: 7em;
+      margin: 10px 10px 0px 10px;
+    }
+    .news-info{
+      margin: 10px 10px 0px 10px;
+    }
+  }
+
+  .book-list{
+    ion-list-header{
+      background-color: rgb(244, 244, 244) !important;
+    }
+    ion-item{
+      background-color: rgb(244, 244, 244) !important;
+    }
+    ion-item-sliding{
+      background-color: rgb(244, 244, 244) !important;
+    }
+  }
+
+}

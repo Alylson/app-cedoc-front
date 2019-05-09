@@ -1,0 +1,49 @@
+page-gerenciar-evento {
+
+  ion-content{
+    background-color: rgb(244, 244, 244) !important;
+  }
+
+  .header-bar{
+    position: relative !important;
+  }
+
+  .empty-fill-ios{
+    height: 8px !important;
+  }
+
+  .info:first-of-type{
+    margin-top: 0px !important;
+  }
+
+  .edit-button{
+    position: absolute;
+    right: 20px;
+    margin-top: -35px;
+    z-index: 1 !important;
+  }
+
+
+  .info{
+    hr{
+      margin-top: 0px !important;
+    }
+    h2{
+      font-weight: 500;
+      font-size: 13px;
+      margin: 0px 5px 0px 5px;
+    }
+    p{
+      font-size: 11px;
+      margin: 5px 15px 0px 15px;
+    }
+    button{
+      position: absolute;
+      right: 30px;
+      margin-top: -30px;
+    }
+    margin: 10px;
+    background: white;
+  }
+
+}

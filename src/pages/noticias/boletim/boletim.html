@@ -1,0 +1,55 @@
+<ion-header>
+</ion-header>
+<ion-content>
+
+  <div id="dynamicHeader" class="header-bar">
+    <button color="dark" ion-button icon-only (click)="voltar()" clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+    <ion-title *ngIf="plt.is('ios')" class="ion-title-ios">Boletim</ion-title>
+    <ion-title *ngIf="!plt.is('ios')">Boletim</ion-title>
+    <hr/>
+  </div>
+
+  <ion-card class="boletim-box" *ngFor="let item of boletim">
+
+    <div class="boletim">
+
+      <img src="{{ item.c_thumbnail }}" (click)="abrirDetalhesNoticia(item)">
+
+      <ion-card-header (click)="abrirDetalhesNoticia(item)">
+        {{ item.c_titulo }}
+      </ion-card-header>
+
+      <ion-note (click)="abrirDetalhesNoticia(item)">
+        {{ utils.formatDataPostagem(item.n_datapost) }} atrás
+      </ion-note>
+
+      <ion-card-content (click)="abrirDetalhesNoticia(item)">
+        <p>{{ item.c_texto }}</p>
+      </ion-card-content>
+
+      <!--
+
+      <hr/>
+
+      <div class="user-action">
+        <button ion-button icon-left clear (click)="utils.curtirBoletim(item)">
+          <ion-icon name="thumbs-up"></ion-icon>
+          {{ item.n_curtidas }}
+        </button>
+        <button text-capitalize ion-button icon-left clear>
+          <ion-icon name="text"></ion-icon>
+          0
+        </button>
+
+        <button class="share-button" ion-button icon-only item-end clear>
+          <ion-icon name="md-share"></ion-icon>
+        </button>
+     </div>
+
+      -->
+
+    </div>
+  </ion-card>
+</ion-content>

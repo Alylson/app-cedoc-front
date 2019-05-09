@@ -1,0 +1,117 @@
+<ion-header>
+</ion-header>
+<ion-content>
+
+  <div id="dynamicHeader" class="header-bar">
+    <button color="dark" ion-button icon-only (click)="voltar()" clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+    <ion-title *ngIf="plt.is('ios')" class="ion-title-ios">Gestão</ion-title>
+    <ion-title *ngIf="!plt.is('ios')">Gestão</ion-title>
+    <hr/>
+  </div>
+
+  <div *ngIf="plt.is('ios')" class="empty-fill-ios">
+  </div>
+
+  <div class="button-item">
+    <div (click)="utils.toggleSubItem('optionsUsuarios')">
+      <ion-icon name='people'></ion-icon>
+      <span>Usuários</span>
+      <ion-icon name='ios-arrow-down'></ion-icon>
+      <ion-badge>{{inactiveUsers}}</ion-badge>
+    </div>
+    <div style="display: none" id="optionsUsuarios">
+      <div (click)="gerenciar(2)" class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='md-person-add'></ion-icon>
+        <span>Cadastros pendentes</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+        <ion-badge>{{inactiveUsers}}</ion-badge>
+      </div>
+      <div (click)="gerenciar(1)" class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='person'></ion-icon>
+        <span>Gerenciar usuários</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+      </div>
+    </div>
+    <div class="hrule"></div>
+  </div>
+
+  <!--
+  <div class="button-item">
+    <div (click)="utils.toggleSubItem('optionsAcervo')">
+      <ion-icon name='ios-archive'></ion-icon>
+      <span>Acervo</span>
+      <ion-icon name='ios-arrow-down'></ion-icon>
+    </div>
+    <div style="display: none" id="optionsAcervo">
+      <div class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='add'></ion-icon>
+        <span>Inserir item</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+      </div>
+      <div class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='paper'></ion-icon>
+        <span>Gerenciar acervo</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+      </div>
+    </div>
+    <div class="hrule"></div>
+  </div>
+  -->
+
+  <!--
+  <div class="button-item">
+    <div (click)="utils.toggleSubItem('optionsBoletim')">
+      <ion-icon name='paper-plane'></ion-icon>
+      <span>Boletim</span>
+      <ion-icon name='ios-arrow-down'></ion-icon>
+    </div>
+    <div style="display: none" id="optionsBoletim">
+      <div class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='add'></ion-icon>
+        <span>Inserir item</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+      </div>
+      <div class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='paper'></ion-icon>
+        <span>Gerenciar boletins</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+      </div>
+    </div>
+    <div class="hrule"></div>
+  </div>
+  -->
+
+  <div class="button-item">
+    <div (click)="utils.toggleSubItem('optionsEventos')">
+      <ion-icon name='calendar'></ion-icon>
+      <span>Eventos</span>
+      <ion-icon name='ios-arrow-down'></ion-icon>
+    </div>
+    <div style="display: none" id="optionsEventos">
+      <div (click)="cadastrarEvento()" class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='add'></ion-icon>
+        <span>Cadastrar evento</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+      </div>
+      <!--
+      <div (click)="gerenciarEvento()" class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='paper'></ion-icon>
+        <span>Gerenciar eventos</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+      </div>
+      -->
+    </div>
+    <div class="hrule"></div>
+  </div>
+
+</ion-content>

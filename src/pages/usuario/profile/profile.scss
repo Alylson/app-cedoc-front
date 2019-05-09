@@ -1,0 +1,39 @@
+page-profile {
+
+  ion-content{
+    background-color: rgb(244, 244, 244) !important;
+  }
+
+  .header-bar{
+    position: relative !important;
+  }
+
+  .profile{
+    height: 170px;
+    text-align: center;
+    img{
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+      border: 1px solid rgba(80, 80, 80, 0.2);
+      display: block;
+      margin: 10px auto;
+    }
+    span{
+      font-size: 16px !important;
+      display: block !important;
+    }
+    ion-note{
+      display: block !important;
+      font-size: 11px !important;
+    }
+  }
+
+  hr{
+    border-top: 1px solid rgba(80, 80, 80, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    height: 0px !important;
+    margin: 0px 10px 10px 10px !important;
+  }
+
+}

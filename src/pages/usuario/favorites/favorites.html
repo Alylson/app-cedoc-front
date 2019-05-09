@@ -1,0 +1,113 @@
+<ion-header>
+</ion-header>
+<ion-content (ionScroll)="onScroll($event)">
+
+  <div id="dynamicHeaderFavorites" class="header-bar">
+    <button color="dark" ion-button icon-only menuToggle clear>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <hr/>
+  </div>
+
+  <div class="empty-fill">
+  </div>
+
+  <div class="favorites">
+
+    <div class="empty-activity" *ngIf="utils.favoritesCache == null || utils.favoritesCache == '' ">
+      <ion-icon name="ios-star-outline"></ion-icon>
+      <span>Gerencie aqui seus favoritos</span>
+    </div>
+
+    <div *ngIf="utils.favoritesCache != null || utils.favoritesCache != ''">
+
+      <ion-list class="doc-list">
+
+        <ion-item-sliding *ngFor="let doc of localFavorites">
+
+          <ion-item (click)="abrirDetalhesDoc(doc, utils.AUDIOVISUAL)">
+            <ion-icon name="albums" item-start large></ion-icon>
+            <h2>{{ doc.title }}</h2>
+            <p>{{ doc.sender }}</p>
+            <ion-note>{{ doc.source }}</ion-note>
+          </ion-item>
+          <ion-item-options side="right">
+
+            <button *ngIf="logged" ion-button color="primary">
+              <ion-icon name="thumbs-up"></ion-icon>
+              Curtir
+            </button>
+
+            <button *ngIf="logged" ion-button color="secondary" (click)="utils.toggleFavorito(doc.audiovisual_id)">
+              <ion-icon *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(doc.audiovisual_id) == -1" name="ios-star-outline"></ion-icon>
+              <ion-icon *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(doc.audiovisual_id) != -1" name="ios-star"></ion-icon>
+              Favoritar
+            </button>
+
+            <button ion-button color="danger">
+              <ion-icon name="md-share"></ion-icon>
+              Compartilhar
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+
+      </ion-list>
+
+      <!--
+      <ion-card class="livros" *ngFor="let item of localFavorites">
+
+        <ion-item (click)="abrirDetalhesLivro(item)">
+          <ion-avatar item-start>
+            <img src="{{ item.c_thumbnail }}">
+          </ion-avatar>
+          <h2>{{ item.c_nome }}</h2>
+          <ion-note>
+            {{ item.c_autor }}
+          </ion-note>
+        </ion-item>
+
+        <ion-row (click)="abrirDetalhesLivro(item)">
+          <ion-col>
+            <ion-note>
+              <ion-icon name="book"></ion-icon>
+            </ion-note>
+            <ion-note color="{{ item.c_displocal == 'true' ? 'secondary':'danger' }}">
+              <ion-icon name="{{ item.c_displocal == 'true' ? 'checkmark-circle':'close-circle' }}"></ion-icon>
+            </ion-note>
+            <ion-note *ngIf="item.c_dispebook == 'true'">
+              <ion-icon name="cloud-done"></ion-icon>
+            </ion-note>
+            <ion-note *ngIf="item.c_dispebook == 'true'">
+              <ion-icon name="download"></ion-icon>
+            </ion-note>
+            <ion-note class="publish-time">
+              {{ utils.formatDataPostagem(item.n_datapost) }} atrás
+            </ion-note>
+          </ion-col>
+        </ion-row>
+
+        <div class="user-action">
+          <button ion-button icon-left clear>
+            <ion-icon name="thumbs-up"></ion-icon>
+            {{ item.n_curtidas }}
+          </button>
+          <button text-capitalize ion-button icon-left clear>
+            <ion-icon name="text"></ion-icon>
+            0
+          </button>
+          <button class="share-button" ion-button icon-only item-end clear>
+            <ion-icon name="md-share"></ion-icon>
+          </button>
+          <button class="share-button" ion-button icon-only clear (click)="utils.toggleFavorito(item.n_pkent)">
+            <ion-icon *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(item.n_pkent) == -1" name="ios-star-outline"></ion-icon>
+            <ion-icon color="primary" *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(item.n_pkent) != -1" name="ios-star"></ion-icon>
+          </button>
+        </div>
+
+      </ion-card>
+      -->
+    </div>
+
+  </div>
+
+</ion-content>

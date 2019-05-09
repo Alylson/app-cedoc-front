@@ -1,0 +1,43 @@
+<ion-content class="primary-gradient-background">
+
+  <div id="dynamicHeader" class="header-bar">
+    <button (click)="login()" color="dark" ion-button icon-only menuToggle clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+  </div>
+
+  <div class="logo">
+    <div class="img">
+      <img class="cedoc" src="../../../assets/imgs/cedoc-transparente.png">
+    </div>
+    <!--
+    <div class="icon">
+      <ion-icon color="white" name="book"></ion-icon>
+    </div>
+    -->
+  </div>
+
+  <form class="login-box" (submit)="recuperarSenha()">
+    <div class="input-box">
+      <ion-icon color="white" item-start name="ios-mail-outline"></ion-icon>
+      <ion-input name="email" type="text" placeholder="Digite o email da sua conta" [(ngModel)]="email"></ion-input>
+    </div>
+    <div class="login-button">
+      <button style="text-transform: none !important;" text-uppercase ion-button outline block>
+        Recuperar senha
+      </button>
+    </div>
+    <!--
+    <div class="action-links">
+      <span class="esqueceu-senha">Esqueceu sua senha?</span
+      <span class="novo-user"><u (click)="login()">Voltar</u></span>
+    </div>
+    -->
+  </form>
+
+  <div class="rodape-logos">
+    <!--<img class="cedoc" src="../../../assets/imgs/cedoc-transparente.png">-->
+    <img class="fapdf" src="../../../assets/imgs/fapdf-transparente.png">
+  </div>
+
+</ion-content>

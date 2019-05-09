@@ -1,0 +1,31 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+
+  <div class="header-bar">
+    <button color="dark" ion-button icon-only menuToggle clear>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <button class="right-button" color="dark" ion-button icon-only clear (click)="logout()">
+      <ion-icon name='log-out'></ion-icon>
+    </button>
+  </div>
+
+  <div class="profile">
+    <img src="./../../../assets/imgs/user.png">
+
+    <span id="nomeUsu"></span>
+    <ion-note>
+      Brasília, DF
+    </ion-note>
+  </div>
+
+  <hr/>
+
+  <div class="empty-activity">
+    <ion-icon name="stats"></ion-icon>
+    <span>Nenhuma atividade recente</span>
+  </div>
+
+</ion-content>

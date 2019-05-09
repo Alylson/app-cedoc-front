@@ -1,0 +1,76 @@
+<ion-header>
+</ion-header>
+<ion-content (ionScroll)="onScroll($event)">
+
+  <div id="dynamicHeaderBook" class="header-bar">
+    <button color="dark" ion-button icon-only (click)="voltar()" clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+    <hr/>
+  </div>
+
+  <div class="empty-fill">
+  </div>
+
+  <ion-searchbar class="searchbar" placeholder="Buscar Categorias" (ionInput)="filtrarCategorias($event)"></ion-searchbar>
+
+  <div style="margin-top: 4px !important;" class="h-rule"></div>
+
+  <div class="button-item" (click)="abrirTodos(campusjournal)">
+    <ion-icon name='archive'></ion-icon>
+    <span>Campus Journal</span>
+    <ion-icon name='ios-arrow-forward'></ion-icon>
+    <div class="hrule"></div>
+  </div>
+
+  <div class="button-item">
+
+    <div (click)="utils.toggleSubItem('optionsAudiovisual')">
+      <ion-icon name='md-filing'></ion-icon>
+      <span>Audiovisual</span>
+      <ion-icon name='ios-arrow-down'></ion-icon>
+    </div>
+
+    <div style="display: block" id="optionsAudiovisual">
+
+      <div (click)="abrirTodos(audiovisual)" class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='md-filing'></ion-icon>
+        <span>Todos</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+      </div>
+
+      <div *ngFor="let cat of categorias" (click)="abrirCategoria(cat.id, audiovisual)" class="sub-item">
+        <div class="hrule"></div>
+        <ion-icon name='albums'></ion-icon>
+        <span>{{cat.categoria}}</span>
+        <ion-icon name='ios-arrow-forward'></ion-icon>
+      </div>
+
+    </div>
+
+    <div class="hrule"></div>
+  </div>
+
+  <!--
+
+  <div class="card-background-page">
+
+
+    <ion-card *ngIf="entidadesLength != null" (click)="abrirTodos()">
+      <div class="card-title">Todos</div>
+      <div class="card-subtitle">{{ entidadesLength }} Livros</div>
+      <img src="https://images.pexels.com/photos/12064/pexels-photo-12064.jpeg?h=350&auto=compress&cs=tinysrgb"/>
+    </ion-card>
+
+    <ion-card *ngFor="let categoria of categorias" (click)="abrirCategoria(categoria.n_pkcatego)">
+      <div class="card-title">{{ categoria.c_nomecatego }}</div>
+      <div class="card-subtitle">{{ categoria.listagem }} Livros</div>
+      <img src="{{ categoria.c_thumbnail }}"/>
+    </ion-card>
+
+  </div>
+
+  -->
+
+</ion-content>

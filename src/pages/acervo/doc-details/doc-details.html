@@ -1,0 +1,101 @@
+<ion-content>
+
+  <div class="header-bar">
+    <button color="dark" ion-button icon-only (click)="voltar()" clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+    <ion-title *ngIf="plt.is('ios')" class="ion-title-ios">{{ doc.title }}</ion-title>
+    <ion-title *ngIf="!plt.is('ios')">{{ doc.title }}</ion-title>
+
+    <button (click)="utils.compartilharDoc(doc)" class="right-button" color="dark" ion-button icon-only clear>
+      <ion-icon name='md-share'></ion-icon>
+    </button>
+
+    <hr/>
+  </div>
+
+  <ion-list no-lines>
+
+    <ion-item *ngIf="doc.fileFormat == 'DG'">
+      <ion-icon *ngIf="tipo == utils.AUDIOVISUAL" name="albums" item-start large></ion-icon>
+      <ion-icon *ngIf="tipo == utils.CAMPUSJOURNAL" name="archive" item-start large></ion-icon>
+      <h2>{{ doc.File }}</h2>
+      <ion-note>Arquivo</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="bookmark" item-start large></ion-icon>
+      <h2>{{ doc.source }}</h2>
+      <ion-note>Fonte</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="person" item-start large></ion-icon>
+      <h2>{{ tipo == utils.CAMPUSJOURNAL ? doc.author : doc.sender }}</h2>
+      <ion-note>Autor</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="calendar" item-start large></ion-icon>
+      <h2>{{ doc.date }}</h2>
+      <ion-note>Data de Produção</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="{{ doc.fileFormat == 'AN' ? 'checkmark-circle':'close-circle' }}" item-start large></ion-icon>
+      <h2>Arquivo Físico</h2>
+      <ion-note>{{ doc.fileFormat == 'AN' ? 'Disponível':'Indisponível' }}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="{{ doc.fileFormat == 'DG' ? 'checkmark-circle':'close-circle' }}" item-start large></ion-icon>
+      <h2>Arquivo Digital</h2>
+      <ion-note>{{ doc.fileFormat == 'DG' ? 'Disponível':'Indisponível' }}</ion-note>
+    </ion-item>
+
+    <ion-list *ngIf="doc.fileFormat == 'DG'">
+
+      <ion-list-header>
+        Opções de Download
+      </ion-list-header>
+
+      <ion-item>
+        <ion-icon name='cloud' item-start></ion-icon>
+        <ion-toggle checked="false" disabled></ion-toggle>
+        <ion-label>
+          Disponível Offline
+        </ion-label>
+      </ion-item>
+
+      <ion-item class="list-button">
+        <button ion-button icon-left small block disabled>
+          <ion-icon name="open"></ion-icon>
+          Abrir
+        </button>
+      </ion-item>
+
+      <ion-item class="list-button">
+        <button ion-button icon-left small block color="secondary" disabled>
+          <ion-icon name="cloud-download"></ion-icon>
+          Baixar
+        </button>
+      </ion-item>
+
+    </ion-list>
+
+    <!--
+    <ion-item>
+      <button *ngIf="logged" ion-button icon-left small item-start>
+        <ion-icon name="thumbs-up"></ion-icon>
+        0 Curtidas
+      </button>
+      <button ion-button icon-left small item-end disabled>
+        <ion-icon name="text"></ion-icon>
+        0 Comentários
+      </button>
+    </ion-item>
+    -->
+
+  </ion-list>
+
+</ion-content>

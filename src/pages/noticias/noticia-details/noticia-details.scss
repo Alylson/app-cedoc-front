@@ -1,0 +1,51 @@
+page-noticia-details {
+
+  ion-col{
+    padding: 0px !important;
+  }
+
+  ion-navbar{
+    position: absolute;
+  }
+
+  h5{
+    margin: 0px 17px 0px 17px !important;
+  }
+
+  .post-info{
+    margin: 10px 17px 10px 17px !important;
+    .publish-info{
+      float: left;
+    }
+    .publish-time{
+      font-size: 11px !important;
+      float: right !important;
+    }
+  }
+
+  .autor-info{
+    margin: 0px 17px 10px 17px !important;
+    font-size: 11px !important;
+  }
+
+  .user-action{
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    margin: 10px 17px 10px 17px !important;
+    padding: 0px !important;
+
+    button{
+
+      ion-icon{
+        font-size: 15px !important;
+      }
+    }
+  }
+
+  ion-card-content{
+    margin: 10px 17px 10px 17px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 0px 0px 10px 0px !important;
+  }
+
+}

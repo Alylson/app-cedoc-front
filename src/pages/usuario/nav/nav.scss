@@ -1,0 +1,172 @@
+page-nav {
+  .hide-tabs{
+    .tabbar{
+      display: none !important;
+    }
+  }
+  .show-tabs{
+    background-color: rgb(244, 244, 244) !important;
+    .tabbar{
+      display: flex !important;
+    }
+  }
+
+  .shadow-menu{
+    -webkit-box-shadow: 0px -7px 10px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px -7px 10px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px -7px 10px 0px rgba(0,0,0,0.3);
+  }
+
+  .loading-full{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #2c3e50;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    z-index: 9999999;
+   // transition: opacity 0.1s linear;
+    //opacity: 0;
+    ion-spinner * {
+      display: block;
+      margin: 0 auto;
+      height: 50px;
+      width: 50px;
+      stroke: white;
+    }
+  }
+
+  #homeMenu{
+    ion-content{
+      background: #2c3e50 !important;
+      ion-item{
+        background: rgba(80, 80, 80, 0.5) !important;
+        padding: 20px 0px 20px 17px !important;
+        ion-avatar{
+          img{
+            height: 50px !important;
+            width: 50px !important;
+            border: 1px solid rgba(80, 80, 80, 0.1) !important;
+          }
+        }
+        h2{
+          font-size: 15px !important;
+          color: rgba(255, 255, 255, 1) !important;
+          margin-bottom: -5px !important;
+        }
+        ion-note{
+          font-size: 10px !important;
+          color: rgba(255, 255, 255, 0.5) !important;;
+        }
+      }
+      hr{
+        border-top: 1px solid rgba(80, 80, 80, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+        height: 0px !important;
+        margin: 0px 10px 0px 10px !important;
+      }
+
+      button{
+        background: transparent !important;
+        color: rgba(255, 255, 255, 1) !important;
+        ion-icon{
+          color: rgba(255, 255, 255, 1) !important;
+        }
+        span{
+          color: rgba(255, 255, 255, 0.8) !important;
+        }
+      }
+    }
+  }
+
+  #bookMenu{
+    ion-content{
+      background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%) !important;
+      .menu-list{
+        margin-bottom: 0px !important;
+        ion-item{
+          background: rgba(80, 80, 80, 0.5) !important;
+          padding: 20px 0px 20px 17px !important;
+          ion-avatar{
+            img{
+              height: 50px !important;
+              width: 50px !important;
+              border: 1px solid rgba(80, 80, 80, 0.1) !important;
+            }
+          }
+          h2{
+            font-size: 15px !important;
+            color: rgba(255, 255, 255, 1) !important;
+            margin-bottom: -5px !important;
+          }
+          ion-note{
+            font-size: 10px !important;
+            color: rgba(255, 255, 255, 0.5) !important;;
+          }
+        }
+      }
+
+      hr{
+        border-top: 1px solid rgba(80, 80, 80, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+        height: 0px !important;
+        margin: 0px 10px 10px 10px !important;
+      }
+
+      button{
+        background: transparent !important;
+        color: rgba(255, 255, 255, 1) !important;
+        ion-icon{
+          color: rgba(255, 255, 255, 1) !important;
+        }
+        span{
+          color: rgba(255, 255, 255, 0.8) !important;
+        }
+      }
+
+      .radio-list{
+        ion-list-header{
+          background: transparent !important;
+          border: 0px !important;
+          color: rgba(255, 255, 255, 0.7) !important;
+        }
+        ion-item{
+          background: transparent !important;
+          .item-inner{
+            border-bottom: 0px !important;
+          }
+          ion-icon{
+            color: rgba(255, 255, 255, 1) !important;
+          }
+          ion-label{
+            color: rgba(255, 255, 255, 0.8) !important;
+          }
+
+        }
+      }
+
+      .android{
+        .radio-icon{
+          border-color: rgba(255, 255, 255, 1) !important;
+          .radio-inner{
+            background-color: rgba(255, 255, 255, 1) !important;
+            border-color: rgba(255, 255, 255, 1) !important;
+          }
+        }
+      }
+      .ios{
+        .radio-icon{
+          border-color: rgba(255, 255, 255, 1) !important;
+          .radio-inner{
+            border-color: rgba(255, 255, 255, 1) !important;
+          }
+        }
+      }
+    }
+  }
+}

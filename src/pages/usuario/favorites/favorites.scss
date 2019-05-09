@@ -1,0 +1,23 @@
+page-favorites {
+
+  ion-content{
+    background-color: rgb(244, 244, 244) !important;
+  }
+
+  .favorites{
+
+  }
+
+  .doc-list{
+    ion-list-header{
+      background-color: rgb(244, 244, 244) !important;
+    }
+    ion-item{
+      background-color: rgb(244, 244, 244) !important;
+    }
+    ion-item-sliding{
+      background-color: rgb(244, 244, 244) !important;
+    }
+  }
+
+}

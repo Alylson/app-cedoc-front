@@ -1,0 +1,134 @@
+<!-- <ion-content (ionScroll)="onScroll($event)"> -->
+<ion-content>
+
+  <div id="dynamicHeader" class="header-bar">
+    <button class="iconButton" color="dark" ion-button icon-only menuToggle clear>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <button *ngIf="showLoginButton" (click)="abrirLogin()" class="loginButton" color="primary" ion-button small>Fazer login</button>
+    <img class="fapdf" src="../../../assets/imgs/fapdf-transparente.png">
+    <img class="cedoc" src="../../../assets/imgs/cedoc-transparente.png">
+    <hr/>
+  </div>
+  <!--
+    <div class="empty-fill">
+    </div>
+  -->
+
+  <div *ngIf="logged && (userInfo.role == 'admin')" (click)="abrirGestao()" class="button-item">
+    <ion-icon name='construct'></ion-icon>
+    <span>Gestão</span>
+    <ion-icon name='ios-arrow-forward'></ion-icon>
+    <ion-badge>{{inactiveUsers}}</ion-badge>
+    <div class="hrule"></div>
+  </div>
+
+  <div (click)="abrirCategorias()" class="button-item">
+    <ion-icon name='search'></ion-icon>
+    <span>Buscar no acervo</span>
+    <ion-icon name='ios-arrow-forward'></ion-icon>
+    <div class="hrule"></div>
+  </div>
+
+  <div (click)="abrirBoletim()" class="button-item">
+    <ion-icon name='paper-plane'></ion-icon>
+    <span>Boletim</span>
+    <ion-icon name='ios-arrow-forward'></ion-icon>
+    <div class="hrule"></div>
+  </div>
+
+  <div (click)="abrirEventos()" class="button-item">
+    <ion-icon name='calendar'></ion-icon>
+    <span>Eventos</span>
+    <ion-icon name='ios-arrow-forward'></ion-icon>
+    <ion-badge *ngIf="eventosCount > 0">{{eventosCount}}</ion-badge>
+    <div class="hrule"></div>
+  </div>
+
+  <div (click)="abrirAbout()" class="button-item">
+    <ion-icon name='help-circle'></ion-icon>
+    <span>Sobre</span>
+    <ion-icon name='ios-arrow-forward'></ion-icon>
+    <div class="hrule"></div>
+  </div>
+
+  <div class="feed-title">Últimas notícias</div>
+
+  <ion-slides pager="true" style="height: auto" slidesPerView="1">
+    <ion-slide *ngFor="let item of noticias">
+
+      <ion-card class="news" (click)="abrirDetalhesNoticia(item)">
+
+        <ion-row>
+          <ion-col>
+            <img src="{{ item.c_thumbnail }}">
+          </ion-col>
+          <ion-col class="news-info">
+            <h4><b>Escrito por</b></h4>
+            <h6>{{ item.c_autor }}</h6>
+            <ion-note>
+              {{ utils.formatDataPostagem(item.n_datapost) }} atrás
+            </ion-note>
+          </ion-col>
+        </ion-row>
+
+        <ion-item>
+          <h2 class="title"><b>{{ item.c_titulo }}</b></h2>
+        </ion-item>
+
+        <ion-card-content>
+          <p>{{ formatText(item.c_texto, 115) }}</p>
+        </ion-card-content>
+
+      </ion-card>
+
+    </ion-slide>
+  </ion-slides>
+
+  <div class="h-rule"></div>
+
+  <div class="feed-title">Últimos itens adicionados ao acervo</div>
+
+  <ion-list class="book-list">
+
+    <ion-item-sliding *ngFor="let doc of acervo">
+
+      <!--
+      <ion-item *ngIf="tipo == utils.CAMPUSJOURNAL" (click)="abrirDetalhesDoc(doc, utils.CAMPUSJOURNAL)">
+        <ion-icon name="archive" item-start large></ion-icon>
+        <h2>{{ doc.title }}</h2>
+        <p>{{ doc.description }}</p>
+        <p>{{ doc.author }}</p>
+        <ion-note>{{ doc.source }}</ion-note>
+      </ion-item>
+      -->
+
+      <ion-item (click)="abrirDetalhesDoc(doc, utils.AUDIOVISUAL)">
+        <ion-icon name="albums" item-start large></ion-icon>
+        <h2>{{ doc.title }}</h2>
+        <p>{{ doc.sender }}</p>
+        <ion-note>{{ doc.source }}</ion-note>
+      </ion-item>
+      <ion-item-options side="right">
+
+        <button *ngIf="logged" ion-button color="primary">
+          <ion-icon name="thumbs-up"></ion-icon>
+          Curtir
+        </button>
+
+        <button *ngIf="logged" ion-button color="secondary" (click)="utils.toggleFavorito(doc.audiovisual_id)">
+          <ion-icon *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(doc.audiovisual_id) == -1" name="ios-star-outline"></ion-icon>
+          <ion-icon *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(doc.audiovisual_id) != -1" name="ios-star"></ion-icon>
+          Favoritar
+        </button>
+
+        <button ion-button color="danger" (click)="utils.compartilharDoc(doc)">
+          <ion-icon name="md-share"></ion-icon>
+          Compartilhar
+        </button>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

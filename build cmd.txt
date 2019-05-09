@@ -1,0 +1,25 @@
+ionic cordova build browser --prod --aot --minifyjs --minifycss --optimizejs --release
+
+--------------------------------------
+
+ionic cordova plugin list
+
+ionic cordova plugin remove
+
+--------------------------------------
+
+ionic cordova platform add android
+
+--------------------------------------
+
+	keytool -genkey -v -keystore myapp.keystore -alias myapp -keyalg RSA -keysize 2048 -validity 10000
+
+ionic cordova build android --release
+
+	keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias cedoc-fac-app
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks android-release-unsigned.apk cedoc-fac-app
+
+\AndroidSDK\build-tools\26.0.0\zipalign.exe -v 4 android-release-unsigned.apk cedoc-fac-app-alpha.apk
+
+-------------------------------------

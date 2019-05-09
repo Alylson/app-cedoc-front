@@ -1,0 +1,121 @@
+<!--
+<ion-header no-border>
+
+  <ion-navbar hideBackButton color="cards-bg">
+    <button ion-button icon-only menuToggle show>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-searchbar placeholder="Buscar" (ionInput)="filtrarEntidades($event)"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+-->
+<ion-content class="{{ utils.filterHeight() }}">
+
+  <div id="dynamicHeader" class="header-bar">
+    <button color="dark" ion-button icon-only (click)="voltar()" clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+    <ion-title *ngIf="plt.is('ios')" class="ion-title-ios"></ion-title>
+    <ion-title *ngIf="!plt.is('ios')"></ion-title>
+
+    <button class="right-button" color="dark" ion-button icon-only clear (click)="presentRadioPopover($event)">
+      <ion-icon name='md-funnel'></ion-icon>
+    </button>
+
+    <hr/>
+  </div>
+
+  <!--<div *ngIf="plt.is('ios')" class="empty-fill-ios">-->
+  <!--</div>-->
+
+  <ion-searchbar class="searchbar" placeholder="Buscar" (ionInput)="filtrarEntidades($event)"></ion-searchbar>
+
+  <!--<div style="margin-top: 4px !important;" class="h-rule"></div>-->
+
+  <ion-list class="book-list">
+    <ion-list-header>
+      Livros
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let item of entidades">
+      <ion-item (click)="abrirDetalhesLivro(item)">
+        <ion-avatar item-start>
+          <img src="{{ item.c_thumbnail }}">
+        </ion-avatar>
+        <h2>{{ item.c_nome }}</h2>
+        <p>{{ item.c_autor }}</p>
+        <ion-note>{{ formatText(item.c_info, 115) }}</ion-note>
+      </ion-item>
+      <ion-item-options side="right">
+        <button *ngIf="logged" ion-button color="primary">
+          <ion-icon name="thumbs-up"></ion-icon>
+          Curtir
+        </button>
+        <button *ngIf="logged" ion-button color="secondary" (click)="utils.toggleFavorito(item.n_pkent)">
+          <ion-icon *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(item.n_pkent) == -1" name="ios-star-outline"></ion-icon>
+          <ion-icon *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(item.n_pkent) != -1" name="ios-star"></ion-icon>
+          Favoritar
+        </button>
+        <button ion-button color="danger">
+          <ion-icon name="md-share"></ion-icon>
+          Compartilhar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!--
+  <ion-card class="livros" *ngFor="let item of entidades">
+
+    <ion-item (click)="abrirDetalhesLivro(item)">
+      <ion-avatar item-start>
+        <img src="{{ item.c_thumbnail }}">
+      </ion-avatar>
+      <h2>{{ item.c_nome }}</h2>
+      <ion-note>
+        {{ item.c_autor }}
+      </ion-note>
+    </ion-item>
+
+    <ion-row (click)="abrirDetalhesLivro(item)">
+      <ion-col>
+        <ion-note>
+          <ion-icon name="book"></ion-icon>
+        </ion-note>
+        <ion-note color="{{ item.c_displocal == 'true' ? 'secondary':'danger' }}">
+          <ion-icon name="{{ item.c_displocal == 'true' ? 'checkmark-circle':'close-circle' }}"></ion-icon>
+        </ion-note>
+        <ion-note *ngIf="item.c_dispebook == 'true'">
+          <ion-icon name="cloud-done"></ion-icon>
+        </ion-note>
+        <ion-note *ngIf="item.c_dispebook == 'true'">
+          <ion-icon name="download"></ion-icon>
+        </ion-note>
+        <ion-note class="publish-time">
+          {{ utils.formatDataPostagem(item.n_datapost) }} atrás
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+    <div class="user-action">
+      <button ion-button icon-left clear (click)="alertLogin()">
+        <ion-icon name="thumbs-up"></ion-icon>
+        {{ item.n_curtidas }}
+      </button>
+      <button text-capitalize ion-button icon-left clear (click)="alertLogin()">
+        <ion-icon name="text"></ion-icon>
+        0
+      </button>
+      <button class="share-button" ion-button icon-only item-end clear>
+        <ion-icon name="md-share"></ion-icon>
+      </button>
+      <button class="share-button" ion-button icon-only clear (click)="utils.toggleFavorito(item.n_pkent)">
+        <ion-icon *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(item.n_pkent) == -1" name="ios-star-outline"></ion-icon>
+        <ion-icon color="primary" *ngIf="utils.favoritesCache != null && utils.favoritesCache.indexOf(item.n_pkent) != -1" name="ios-star"></ion-icon>
+      </button>
+    </div>
+
+  </ion-card>
+  -->
+
+</ion-content>

@@ -1,0 +1,47 @@
+page-boletim {
+
+  ion-content{
+    //background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-color: rgb(244, 244, 244) !important;
+  }
+
+  .header-bar{
+    position: relative !important;
+  }
+
+  .boletim-box{
+    padding-bottom: 5px !important;
+    .boletim{
+      padding: 0px !important;
+      ion-card-header{
+        display: inline-block !important;
+        font-size: 1em !important;
+        font-weight: bold !important;
+        width: 12.5em !important;
+        padding: 0px !important;
+        margin: 17px 0px 0px 17px !important;
+        border: 0px !important;
+      }
+      ion-note{
+        display: inline-block !important;
+        font-size: 0.7em !important;
+        float: right;
+        margin: 20px 17px 0px 0px;
+      }
+      ion-card-content{
+        padding: 0px !important;
+        margin: 5px 17px 0px 17px !important;
+        p{
+          font-size: 0.9em !important;
+        }
+      }
+      hr{
+        border-top: 1px solid rgba(80, 80, 80, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 1);
+        height: 0px !important;
+        margin: 10px 10px 0px 10px !important;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,40 @@
+<ion-header>
+</ion-header>
+<ion-content>
+
+  <div id="dynamicHeader" class="header-bar">
+    <button color="dark" ion-button icon-only (click)="voltar()" clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+    <ion-title *ngIf="plt.is('ios')" class="ion-title-ios">Sobre</ion-title>
+    <ion-title *ngIf="!plt.is('ios')">Sobre</ion-title>
+    <hr/>
+  </div>
+
+  <div class="contentAbout">
+    <!--<img src="http://asmetro.org.br/portalsn/wp-content/uploads/2016/11/UnB.png" class="logo">-->
+    <img src="../../../assets/imgs/UnB.png" class="logo">
+    <h1>Cedoc</h1>
+    <p>Ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</p>
+    <h1>Fac</h1>
+    <p>A Faculdade de Comunicação da Universidade de Brasília é a segunda mais antiga instituição da área de comunicação do país. Criada por Pompeu de Sousa junto com a UnB nos anos 1960, ela é uma das mais conceituadas instituições de ensino em sua área de atuação.</p>
+
+    <ion-item no-lines>
+      <ion-icon name="pin" item-start></ion-icon>
+      <h3>Campus Universitário Darcy Ribeiro</h3>
+      <p>Central de Ciências Norte, 70910-900</p>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-icon name="call" item-start></ion-icon>
+      <h3>Secretaria Graduação</h3>
+      <p>(61) 3107-6627</p>
+      <p>(61) 3107-6519</p>
+      <p>(61) 3107-6627</p>
+      <h3>Pós-Graduação</h3>
+      <p>(61) 3107-6539</p>
+    </ion-item>
+
+  </div>
+
+</ion-content>

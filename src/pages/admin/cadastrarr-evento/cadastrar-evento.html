@@ -1,0 +1,63 @@
+<ion-header>
+</ion-header>
+<ion-content>
+
+  <div id="dynamicHeader" class="header-bar">
+    <button color="dark" ion-button icon-only (click)="voltar()" clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+    <ion-title *ngIf="plt.is('ios')" class="ion-title-ios">Cadastrar evento</ion-title>
+    <ion-title *ngIf="!plt.is('ios')">Cadastrar evento</ion-title>
+    <!--
+    <button class="right-button" color="dark" ion-button icon-only clear>
+      <ion-icon name='add'></ion-icon>
+    </button>
+    -->
+    <hr/>
+  </div>
+
+  <div *ngIf="plt.is('ios')" class="empty-fill-ios">
+  </div>
+
+  <ion-card>
+
+    <ion-card-content>
+
+      <ion-list no-lines>
+
+        <ion-item no-padding>
+          <ion-label stacked>Nome do evento</ion-label>
+          <ion-input id="inputNome" [(ngModel)]="evento.c_titulo" placeholder="Digite o nome do evento" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item no-padding>
+          <ion-label stacked>Data do evento</ion-label>
+          <ion-datetime id="inputData" [(ngModel)]="evento.c_data" placeholder="Selecione a data" min="2018" max="2100-12-31" displayFormat="DDDD, D de MMMM de YYYY" pickerFormat="D MMM YYYY" doneText="Confirmar" cancelText="Cancelar"></ion-datetime>
+        </ion-item>
+
+        <ion-item no-padding>
+          <ion-label stacked>Horário de início</ion-label>
+          <ion-datetime id="inputHorario" [(ngModel)]="evento.c_horario" placeholder="Selecione o horário" displayFormat="HH:mm" pickerFormat="HH:mm" doneText="Confirmar" cancelText="Cancelar"></ion-datetime>
+        </ion-item>
+
+        <!--
+        <ion-item no-padding>
+          <ion-label stacked>Local do evento <small>para apresentação no mapa</small></ion-label>
+          <ion-input placeholder="Ex: UnB - Brasília, DF, 70297-400" type="text"></ion-input>
+        </ion-item>
+        -->
+
+        <ion-item no-padding>
+          <ion-label stacked>Endereço completo</ion-label>
+          <ion-input id="inputLocal" [(ngModel)]="evento.c_local" placeholder="Digite o endereço" type="text"></ion-input>
+        </ion-item>
+
+      </ion-list>
+      <br/>
+      <button (click)="enviarEvento()" ion-button block>Cadastrar</button>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

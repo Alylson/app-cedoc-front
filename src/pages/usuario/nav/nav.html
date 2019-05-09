@@ -1,0 +1,144 @@
+<ion-menu id="homeMenu" [content]="content" type="overlay">
+  <ion-header>
+  </ion-header>
+  <ion-content>
+
+    <ion-list no-lines>
+
+      <ion-item style="padding-bottom: 0px !important;" *ngIf="logged">
+        <ion-avatar style="margin-bottom: 0px !important;" item-start>
+          <img src="./../../../assets/imgs/user.png">
+        </ion-avatar>
+        <!--
+        <h2>{{ userInfos.c_nome }}</h2>
+        <ion-note>
+          {{ userInfos.c_email }}
+        </ion-note>
+        -->
+      </ion-item>
+
+      <ion-item style="padding-top: 0px !important;padding-bottom: 7px !important;" *ngIf="logged">
+        <h2>{{ userInfos.c_nome }}</h2>
+        <ion-note style="font-size: 12px !important;">
+          {{ userInfos.c_email }}
+        </ion-note>
+      </ion-item>
+
+      <div *ngIf="!logged">
+        <button class="shadow-menu" ion-item (click)="logout()">
+          <ion-icon name="log-in" item-start></ion-icon>
+          <span>Fazer login</span>
+        </button>
+        <hr/>
+      </div>
+
+      <button *ngIf="logged" class="shadow-menu" ion-item (click)="irParaHome(tabs)">
+        <ion-icon name="home" item-start></ion-icon>
+        <span>Home</span>
+      </button>
+
+      <button *ngIf="!logged" ion-item (click)="irParaHome(tabs)">
+        <ion-icon name="home" item-start></ion-icon>
+        <span>Home</span>
+      </button>
+
+      <button *ngIf="logged" ion-item (click)="irParaProfile(tabs)">
+        <ion-icon name="person" item-start></ion-icon>
+        <span>Perfil</span>
+      </button>
+
+      <button *ngIf="logged" ion-item (click)="irParaFavoritos(tabs)">
+        <ion-icon name="star" item-start></ion-icon>
+        <span>Favoritos</span>
+      </button>
+      <!--
+      <button ion-item>
+        <ion-icon name="settings" item-start></ion-icon>
+        <span>Configurações</span>
+      </button>
+      -->
+      <div *ngIf="logged">
+        <hr/>
+        <button ion-item (click)="logout()">
+          <ion-icon name="log-out" item-start></ion-icon>
+          <span>Sair</span>
+        </button>
+      </div>
+
+    </ion-list>
+
+  </ion-content>
+</ion-menu>
+
+<ion-menu id="bookMenu" [content]="content" type="overlay">
+  <ion-header>
+  </ion-header>
+  <ion-content>
+
+    <ion-list class="menu-list" no-lines>
+
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png">
+        </ion-avatar>
+        <h2>{{ userInfos.c_nome }}</h2>
+        <ion-note>
+          {{ userInfos.c_email }}
+        </ion-note>
+      </ion-item>
+
+      <button class="shadow-menu" ion-item (click)="irParaCategorias(tabs)">
+        <ion-icon name="list" item-start></ion-icon>
+          Categorias
+      </button>
+
+    </ion-list>
+    <hr/>
+    <ion-list class="{{utils.filterListRadio()}} radio-list" (ionChange)="callSortBooks()" no-lines radio-group [(ngModel)]="sortType">
+
+      <ion-list-header>
+        Ordenar por
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-radio value="NOME" checked="true"></ion-radio>
+        <ion-icon name="bookmark" item-start></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>Autor</ion-label>
+        <ion-radio value="AUTOR"></ion-radio>
+        <ion-icon name="person" item-start></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data de publicação</ion-label>
+        <ion-radio value="DATA_PUBLI"></ion-radio>
+        <ion-icon name="calendar" item-start></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data de postagem</ion-label>
+        <ion-radio value="DATA_POST"></ion-radio>
+        <ion-icon name="calendar" item-start></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>Disp. de download</ion-label>
+        <ion-radio value="DISP_DOWNLOAD"></ion-radio>
+        <ion-icon name="download" item-start></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>Disp. na biblioteca</ion-label>
+        <ion-radio value="DISP_BIBLIOTECA"></ion-radio>
+        <ion-icon name="checkmark-circle" item-start></ion-icon>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-menu>
+
+<ion-nav #content [root]="rootPage" main></ion-nav>
+
+<ion-tabs id="pTab" class="show-tabs" color="white-blurred" #tabs tabsPlacement="bottom" tabsHighlight="true">
+  <ion-tab [root]="homeRoot" tabIcon="home" tabTitle="Início"></ion-tab>
+  <ion-tab *ngIf="logged" [root]="favoritesRoot" tabIcon="star" tabTitle="Favoritos"></ion-tab>
+  <ion-tab *ngIf="logged" [root]="profileRoot" tabIcon="person" tabTitle="Perfil"></ion-tab>
+  <ion-tab [root]="linksRoot" tabIcon="link" tabTitle="Links"></ion-tab>
+</ion-tabs>

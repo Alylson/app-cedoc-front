@@ -1,0 +1,68 @@
+<ion-header>
+</ion-header>
+<ion-content>
+
+  <div id="dynamicHeader" class="header-bar">
+    <button color="dark" ion-button icon-only (click)="voltar()" clear>
+      <ion-icon name='arrow-back'></ion-icon>
+    </button>
+    <ion-title *ngIf="plt.is('ios')" class="ion-title-ios">Gestão</ion-title>
+    <ion-title *ngIf="!plt.is('ios')">Gestão</ion-title>
+    <!--
+    <button class="right-button" color="dark" ion-button icon-only clear>
+      <ion-icon name='add'></ion-icon>
+    </button>
+    -->
+    <hr/>
+  </div>
+
+  <div *ngIf="plt.is('ios')" class="empty-fill-ios">
+  </div>
+
+  <ion-searchbar placeholder="Buscar" (ionInput)="filtrarEntidades($event)"></ion-searchbar>
+
+  <ion-card *ngFor="let user of users">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="./../../../assets/imgs/user.png">
+      </ion-avatar>
+      <!-- <h2>{{ formatText(user.c_email, 14) }}</h2> -->
+      <h2>{{ user.c_email }}</h2>
+      <!-- <p>{{ formatText(user.c_nome, 16) }}</p> -->
+      <p>{{ user.c_nome }}</p>
+      <!--
+      <button class="edit-button" ion-button icon-only small>
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+      -->
+    </ion-item>
+
+    <div class="info">
+      <hr/>
+      <h2>Cadastrado em</h2>
+      <p>{{ formatDate(user.created_at) }}</p>
+    </div>
+    <div class="info">
+      <hr/>
+      <h2>Atualizado em</h2>
+      <p>{{ formatDate(user.updated_at) }}</p>
+    </div>
+    <div class="info">
+      <hr/>
+      <h2>Permissão</h2>
+      <p>{{user.role}}</p>
+      <button *ngIf="user.role != 'admin'" (click)="alterarPermissao(user)" ion-button small>Alterar</button>
+
+    </div>
+    <hr style="margin-bottom: 0px !important;"/>
+    <ion-item (click)="alterarStatus(false, user.n_pkid)" *ngIf="user.active == 'true' && user.role != 'admin'">
+      <button color="dark" ion-button block>Desativar usuário</button>
+    </ion-item>
+    <ion-item (click)="alterarStatus(true, user.n_pkid)" *ngIf="user.active == 'false' && user.role != 'admin'">
+      <button color="primary" ion-button block>Ativar usuário</button>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>

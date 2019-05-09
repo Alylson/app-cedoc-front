@@ -1,0 +1,89 @@
+page-eventos {
+
+  ion-content{
+    //background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-color: rgb(244, 244, 244) !important;
+  }
+
+  .header-bar{
+    position: relative !important;
+  }
+
+  .eventos-box{
+    padding-bottom: 5px !important;
+    .eventos{
+      padding: 0px !important;
+      ion-card-header{
+        display: inline-block !important;
+        font-size: 1em !important;
+        font-weight: bold !important;
+        width: 12.5em !important;
+        padding: 0px !important;
+        margin: 17px 0px 0px 17px !important;
+        border: 0px !important;
+      }
+      ion-fab{
+        padding: 10px !important;
+      }
+      ion-item{
+        height: 40px !important;
+        .item-inner{
+          margin-left: 15px !important;
+        }
+        ion-icon{
+          margin: 0px !important;
+        }
+        h3{
+          font-size: 0.8em !important;
+          font-weight: bold !important;
+          padding: 0px !important;
+          margin: 0px !important;
+        }
+        p{
+          font-size: 0.7em !important;
+          padding: 0px !important;
+          margin: 0px !important;
+        }
+      }
+      ion-note{
+        display: inline-block !important;
+        font-size: 0.7em !important;
+        float: right;
+        margin: 20px 17px 0px 0px;
+      }
+      ion-card-content{
+        padding: 0px !important;
+        margin: 5px 17px 0px 17px !important;
+        p{
+          font-size: 0.9em !important;
+        }
+      }
+      hr{
+        border-top: 1px solid rgba(80, 80, 80, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 1);
+        height: 0px !important;
+        margin: 10px 10px 0px 10px !important;
+      }
+    }
+
+    .user-action-evento{
+      padding: 5px 5px 3px 17px !important;
+      height: auto !important;
+      width: auto !important;
+      button{
+        margin-left: 0px !important;
+      }
+      .share-button{
+        float: right !important;
+        margin: 0px !important;
+        color: rgba(0, 0, 0, 0.5) !important;
+        font-size: 12px !important;
+        font-weight: normal !important;
+        padding: 0px !important;
+        ion-icon{
+          font-size: 25px !important;
+        }
+      }
+    }
+  }
+}

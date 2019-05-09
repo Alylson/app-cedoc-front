@@ -1,0 +1,228 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.primary-gradient-background{
+  //background: #2c3e50 !important;
+  background: rgb(244, 244, 244) !important;
+}
+
+.user-action{
+  padding: 5px 5px 3px 17px !important;
+  height: auto !important;
+  width: auto !important;
+  button{
+    margin: 0px 5px 0px 0px !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    padding: 0px !important;
+    ion-icon{
+      font-size: 25px !important;
+    }
+  }
+  .share-button{
+    float: right !important;
+    margin: 0px !important;
+  }
+}
+
+.searchbar{
+  background-color: rgb(244, 244, 244) !important;
+}
+
+.empty-fill{
+  height: 50px !important;
+}
+
+.header-bar{
+  height: 50px !important;
+  padding: 3px 0px 0px 0px !important;
+  margin: 0px 0px 0px 0px !important;
+  position: fixed;
+  width: 100% !important;
+  //transition: background 0.2s, box-shadow 0.2s;
+  .iconButton{
+    font-size: 14px !important;
+    //border: 0px !important;
+    //margin: 0px !important;
+    //padding: 0px !important;
+    //height: 40px !important;
+  }
+  hr{
+    border-top: 1px solid rgba(80, 80, 80, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    height: 0px !important;
+    margin: 0px 10px 10px 10px !important;
+  }
+  ion-title{
+    display: inline !important;
+    position: absolute;
+    width: 100% !important;
+    top: 13px;
+    .toolbar-title{
+      display: inline-block !important;
+      width: 77% !important;
+    }
+  }
+  .ion-title-ios{
+    top: 20px !important;
+  }
+  .right-button{
+    float: right !important;
+  }
+}
+
+.h-rule{
+  border-top: 1px solid rgba(80, 80, 80, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  height: 0px !important;
+  margin: 0px 10px 0px 10px;
+}
+
+.h-rule-list{
+  border-top: 1px solid rgba(80, 80, 80, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  height: 0px !important;
+  margin: 0px 0px 0px 0px !important;
+}
+
+.button-item{
+  height: auto;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  width: 100%;
+
+  ion-icon{
+    font-size: 22px !important;
+    border: 0px !important;
+    margin: 10px 20px 10px 20px !important;
+    min-width: 20px !important;
+  }
+  ion-icon:last-of-type{
+    float: right;
+    min-width: auto !important;
+  }
+  span{
+    font-size: 14px !important;
+    position: absolute;
+    margin-top: 13px;
+  }
+  ion-badge{
+    position: absolute;
+    right: 40px;
+    margin: 13px 0px 0px 0px !important;
+  }
+  .hrule{
+    border-top: 1px solid rgba(80, 80, 80, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    height: 0px;
+    margin: 0px 10px 0px 10px;
+  }
+  .right-button{
+    float: right !important;
+  }
+
+  .sub-item{
+    border-top: 0px;
+    border-bottom: 0px;
+    padding-left: 50px;
+    height: 44px;
+    color: rgba(0, 0, 0, 0.6) !important;
+    ion-icon{
+      font-size: 22px !important;
+      border: 0px !important;
+      margin: 10px 20px 10px 20px !important;
+      position: absolute;
+    }
+    ion-icon:last-of-type{
+      font-size: 18px !important;
+      margin: 12px 1px 10px 20px !important;
+      float: right;
+      right: 10px;
+    }
+    span{
+      font-size: 11px !important;
+      margin-top: 15px;
+      color: rgba(0, 0, 0, 0.8) !important;
+      position: absolute;
+      margin-left: 60px;
+    }
+    ion-badge{
+      position: absolute;
+      right: 40px;
+      margin: 13px 0px 0px 0px !important;
+    }
+    .hrule{
+      border-top: 1px solid rgba(80, 80, 80, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 1);
+      height: 0px !important;
+      margin: 0px 10px 0px 10px !important;
+    }
+  }
+
+}
+
+.h-active{
+  height: 55px !important;
+  background: #fff !important;
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.75);
+  z-index: 9999 !important;
+  hr{
+    display: none !important;
+  }
+}
+
+.livros{
+  ion-row{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 0px 0px 0px 0px !important;
+    margin: 0px 17px 0px 17px !important;
+    ion-note{
+      margin: 0px 10px 0px 0px !important;
+    }
+    .publish-time{
+      float: right !important;
+      font-size: 11px !important;
+      margin-right: 0px !important;
+    }
+  }
+}
+
+.empty-activity{
+  color: rgba(80, 80, 80, 0.1) !important;
+  text-align: center !important;
+  ion-icon{
+    margin-top: 30px;
+    font-size: 40px !important;
+    display: block !important;
+  }
+  span{
+    display: block !important;
+    font-size: 15px !important;
+  }
+}
+
+// --------------------------------------------------
+// List
+// --------------------------------------------------
+
+.list-button button{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}

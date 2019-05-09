@@ -1,0 +1,89 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ livro.c_nome }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list no-lines>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{ livro.c_thumbnail }}">
+      </ion-avatar>
+      <!--<h2>{{ livro.entidade.c_nome }}</h2>-->
+      <ion-note>{{ livro.d_publi }}</ion-note>
+    </ion-item>
+
+    <ion-card-content>
+      <p>{{ livro.c_info }} </p>
+    </ion-card-content>
+
+    <ion-item>
+      <ion-icon name="person" item-start large></ion-icon>
+      <h2>Autor</h2>
+      <ion-note>{{ livro.c_autor }}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="{{ livro.c_displocal == 'true' ? 'checkmark-circle':'close-circle' }}" item-start large></ion-icon>
+      <h2>{{ livro.c_displocal == 'true' ? 'Disponível':'Indisponível' }}</h2>
+      <ion-note>Biblioteca</ion-note>
+    </ion-item>
+
+    <ion-list *ngIf="livro.c_dispebook == 'true'">
+
+      <ion-list-header>
+        E-book
+      </ion-list-header>
+
+      <ion-item>
+        <ion-icon name='cloud' item-start></ion-icon>
+        <ion-toggle checked="false"></ion-toggle>
+        <ion-label>
+          Disponível Offline
+        </ion-label>
+      </ion-item>
+
+      <ion-item class="list-button">
+        <button ion-button icon-left small block>
+          <ion-icon name="open"></ion-icon>
+          Abrir
+        </button>
+      </ion-item>
+
+      <ion-item class="list-button">
+        <button ion-button icon-left small block color="secondary">
+          <ion-icon name="cloud-download"></ion-icon>
+          Baixar
+        </button>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-item>
+      <button *ngIf="logged" ion-button icon-left small item-start>
+        <ion-icon name="thumbs-up"></ion-icon>
+        {{ livro.n_curtidas }} Likes
+      </button>
+      <button *ngIf="logged" ion-button icon-left small item-end>
+        <ion-icon name="text"></ion-icon>
+        4 Comentários
+      </button>
+      <button *ngIf="logged == false" ion-button icon-left small item-start disabled>
+        <ion-icon name="thumbs-up"></ion-icon>
+        {{ livro.n_curtidas }} Likes
+      </button>
+      <button *ngIf="logged == false" ion-button icon-left small item-end disabled>
+        <ion-icon name="text"></ion-icon>
+        4 Comentários
+      </button>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

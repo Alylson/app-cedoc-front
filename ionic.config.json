@@ -1,0 +1,8 @@
+{
+  "name": "cedoc-fac-app",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "app_id": "540edc17"
+}
